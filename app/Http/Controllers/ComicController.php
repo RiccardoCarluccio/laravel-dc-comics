@@ -23,7 +23,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        return view("create");
     }
 
     /**
@@ -31,7 +31,23 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data  = $request->validate([
+            "title" => "required|string",
+            "description" => "required|string",
+            "thumb" => "nullable|string",
+            "price" => "nullable|decimal:2,5",
+            "series" => "required|string",
+            "sale_date" => "nullable|date",
+            "type" => "nullable|string",
+            "artists" => "nullable|string",
+            "writers" => "nullable|string",
+        ]);
+        $data["artists"] = json_encode([$data["artists"]]);
+        $data["writers"] = json_encode([$data["writers"]]);
+        $comic = new Comic();
+        $comic->fill($data);
+        $comic->save();
+        return redirect()->route('homepage', $comic);
     }
 
     /**

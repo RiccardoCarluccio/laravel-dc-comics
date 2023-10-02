@@ -10,5 +10,9 @@
       </li>
     @endforeach
   </ul>
+
+  <a href="{{ route("comic.create") }}">
+    <button>Add Comic</button>
+  </a>
 @section('content')
 @endsection
