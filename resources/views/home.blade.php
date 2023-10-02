@@ -1,6 +1,14 @@
 @extends('layouts.public')
 
 @section('title', 'Home')
-  {{ $comics }}
+  <ul> 
+    @foreach ($comics as $element)
+      <li>
+        <a href="/{{$element->id}}">
+          {{ $element->title }}
+        </a>
+      </li>
+    @endforeach
+  </ul>
 @section('content')
 @endsection
