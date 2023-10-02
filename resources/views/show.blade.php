@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Home')
-  {{ $comics }}
+@section('title', $comic->title)
+
 @section('content')
 @endsection

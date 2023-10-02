@@ -6,7 +6,7 @@ use App\Models\Comic;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ComicsSeeder extends Seeder
+class ComicSeeder extends Seeder
 {
     private $dati = [
         [
