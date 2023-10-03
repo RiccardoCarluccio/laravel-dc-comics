@@ -30,4 +30,8 @@
   <div>
     Writers: {{ $comic->writers }}
   </div>
+
+  <a href="{{ route("comic.edit", ["id"=>$comic->id]) }}">
+    <button>Update Comic</button>
+  </a>
 @endsection
