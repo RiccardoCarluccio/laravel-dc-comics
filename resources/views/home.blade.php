@@ -4,7 +4,7 @@
   <ul> 
     @foreach ($comics as $element)
       <li>
-        <a href="/{{$element->id}}">
+        <a href="/comic/{{$element->id}}">
           {{ $element->title }}
         </a>
       </li>
