@@ -86,8 +86,9 @@ class ComicController extends Controller
             "artists" => "nullable|string",
             "writers" => "nullable|string",
         ]);
-        $data["artists"] = json_encode([$data["artists"]]);
-        $data["writers"] = json_encode([$data["writers"]]);
+        
+        $data["artists"] = explode(",", $data["artists"]);
+        $data["writers"] = explode(",", $data["writers"]);
 
         $comic->update($data);
 
