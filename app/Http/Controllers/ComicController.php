@@ -71,13 +71,23 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(Request $request, $id)
     {
         $comic = Comic::findOrFail($id);
 
-        $data = $request->validated();
-
-        $data["informazioni"] = explode(",", $data["informazioni"]);
+        $data  = $request->validate([
+            "title" => "required|string",
+            "description" => "required|string",
+            "thumb" => "nullable|string",
+            "price" => "nullable|decimal:0,2",
+            "series" => "required|string",
+            "sale_date" => "nullable|date",
+            "type" => "nullable|string",
+            "artists" => "nullable|string",
+            "writers" => "nullable|string",
+        ]);
+        $data["artists"] = json_encode([$data["artists"]]);
+        $data["writers"] = json_encode([$data["writers"]]);
 
         $comic->update($data);
 
