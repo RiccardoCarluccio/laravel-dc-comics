@@ -10,3 +10,4 @@ Route::get('/', [ComicController::class, "index"])->name("homepage");
 Route::get('/comic/{id}', [ComicController::class, "show"])->name("comic.show");
 
 Route::get("/comic/{id}/edit", [ComicController::class, "edit"])->name("comic.edit");
+Route::put("/pasta/{id}", [PastaController::class, "update"])->name("pasta.update");
